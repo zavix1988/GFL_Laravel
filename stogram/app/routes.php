@@ -11,10 +11,25 @@
 |
 */
 
-Route::get('/', function() { return View::make('hello'); });
+//index route
+Route::get('/', 'HomeController@showIndex');
 
 //auth routes
+//signup routes
 Route::get('/auth/signup', 'AuthController@showSignupForm');
 Route::post('/auth/signup', 'AuthController@postSignupForm');
+//signin routes
 Route::get('/auth/login', 'AuthController@showLoginForm');
 Route::post('/auth/login', 'AuthController@postLoginForm');
+//signout route
+Route::get('/auth/logout', 'AuthController@logout');
+
+//upload image route
+Route::post('/upload-image', 'HomeController@postImage');
+
+//showImage route
+Route::get('/image/{id}', 'HomeController@showImage');
+//getImage route
+Route::get('/image-file/{id}', 'HomeController@getImageFile');
+//setComment route
+Route::post('/comment', 'HomeController@postComment');
